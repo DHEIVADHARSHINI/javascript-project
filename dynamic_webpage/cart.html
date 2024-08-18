@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS BAKERY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(pink,#f31596,#f70676);
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 50px;
+            padding-top: 0;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+            gap: 40px;
+            padding-top: 50px;
+        }
+        .cake-item {
+            background-color: #fff;
+             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cake-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .cake-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .navbar{
+            text-align:left;
+            margin-top:-95px;
+            margin-right: 15px;
+            padding-left: 1415px;
+            font-size: 20px;
+            justify-content: space-evenly;
+  
+}
+    </style>
+</head>
+<body>
+    <header style="color: #fcafe2;background-color:#f31596;height: 100px;align-items: center;font-size:30px; font-family:Georgia, 'Times New Roman', Times, serif;">
+    <h1><center> SS Bakery </center></h1>
+    </header>
+    <div class="navbar">
+        <a href="index.html"style="font-style: normal;">&#127968;Home</a><br>
+        <a href="contact.html"style="font-style: normal;">&#128222;Contact</a><br>
+        <a href="product.html"style="font-style: normal;">&#129473;All Product</a>
+      
+</div>
+    <div id="container">
+
+    </div>
+    <script>
+    // fetch('')
+    // //converting json to js obj
+    // .then((data)=> data.json())
+    // //print 
+    // .then((data)=>{
+    //   let con  = document.getElementById('container');
+    //   for(item of data)
+    // {
+    //   con.innerHTML+=`
+    //   <div class="cake-item">
+    //                  <img src="${item.image}" alt="${item.name}">
+    //                  <h3>${item.name}</h3>
+    //                  <p>${item.quantity}</p>
+    //                  <p>Price: $${item.price}</p>
+    //                  </div>
+    //   `
+    // }
+    // })
+        let data=JSON.parse(localStorage.getItem("PRODUCTID"));
+        console.log(data);
+        let pro=document.getElementById("container");
+        for(item of data) {
+            pro.innerHTML += `
+                <div class="cake-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>${item.quantity}</p>
+                    <p>Price: $${item.price}</p>
+                    <a href="acc.html" class="msnb">BUY NOW</a>
+                </div>
+            `;
+        };
+    </script>
+</body>
+</html>

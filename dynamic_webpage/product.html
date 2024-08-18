@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS BAKERY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f70676;
+            margin: 0;
+            padding: 50px;
+            padding-top: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        #div1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+            padding-top: 50px;
+        }
+
+        .cake-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cake-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .cake-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .cake-item button {
+            background-color: pink;
+            border: none;
+            font-size: larger;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border-radius: 0 0 10px 10px;
+            color: #f70676;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .cake-item button:hover {
+            background-color: #f31596;
+        }
+
+        .cake-item h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .cake-item p {
+            color: #777;
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        .footer {
+            background-color: pink;
+            font-size: 16px;
+            font-style: italic;
+            color: #f70676;
+            padding-top: -20px;
+        }
+        .light-mode-btn{
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode-btn {
+            background-color: black;
+            color: white;
+        }
+
+        #page.button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .navbar{
+            text-align:left;
+            margin-top:-100px;
+            margin-right: 15px;
+            padding-left: 1415px;
+            font-size: 20px;
+            justify-content: space-evenly;
+        }
+        .btn{
+            height: 100px;
+            width: 200px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="btn">
+        <button class="btn">
+            Dark Mode
+        </button>
+    </div>
+    <div>
+        <header style="color: #f70676; background-color: #fcafe2; height: 100px; font-size: 40px; font-family: Georgia, 'Times New Roman', Times, serif;">
+            <h1><center>SS BAKERY</center></h1>
+        </header>
+        <div class="navbar">
+              <a href="index.html"style="font-style: normal;">&#127968;Home</a><br>
+              <a href="cart.html"style="font-style: normal;">&#128722;Cart</a><br>
+              <a href="contact.html"style="font-style: normal;">&#128222;Contact</a><br>
+              
+            
+      </div>
+      
+    
+        <div id="div1"></div>
+    </div>
+    <script>
+        const body = document.body;
+    let mybtn=document.getElementById('btn');
+    body.addEventListener("click", () => {
+        if (body.style.backgroundColor === "black" || body.style.backgroundColor === "") {
+            body.style.backgroundColor = "#f70676";
+        } else {
+            body.style.backgroundColor = "black";
+        }
+    });
+        
+
+        const div1 = document.getElementById('div1');   
+        const cake = [
+            {
+                id: 1,
+                name: "Black Forest cake",
+                quantity: "1 Kg",
+                price: 450,
+                description: "Black Forest cake",
+                image: "https://bkmedia.bakingo.com/black-forest-cake0001chbl-AAA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 2,
+                name: "Chocolate Truffle Cake",
+                quantity: "1 Kg",
+                price: 500,
+                description: "Sweet and tangy oranges",
+                image: "https://bkmedia.bakingo.com/choco-truffle-cake0005choc-AAA_1.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 3,
+                name: "Choco Chip Truffle Cake",
+                quantity: "1 Kg",
+                price: 460,
+                description: "Fresh green grapes",
+                image: "https://bkmedia.bakingo.com/chocolate-chip-cake0008choc-AAA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 4,
+                name: "Rasamalai Pista Whipped Cream Cake",
+                quantity: "1 Kg",
+                price: 540,
+                description: "Delicious pomegranates",
+                image: "https://bkmedia.bakingo.com/sq-round-luscious-rasmalai-cake-cake2370rasm-AA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 5,
+                name: "Butterscotch Cake",
+                quantity: "1 Kg",
+                price: 590,
+                description: "Fresh guavas",
+                image: "https://bkmedia.bakingo.com/heavenly-butterscotch-crunch-cake-cake3542butt-C.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 6,
+                name: "Tropical Pineapple Cake",
+                quantity: "1 Kg",
+                price: 300,
+                description: "Exotic kiwis",
+                image: "https://bkmedia.bakingo.com/dreamy-creamy-pineapple-cake-cake3380pine-A.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 7,
+                name: "Chocolate Ferrero Rocher Cake",
+                quantity: "1 Kg",
+                price: 540,
+                description: "Juicy plums",
+                image: "https://bkmedia.bakingo.com/sq-ferrero-rocher-cake-cake1140choc-AA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 8,
+                name: "White Chocolate Blueberry Cake",
+                quantity: "1 Kg",
+                price: 350,
+                description: "Fresh lychees",
+                image: "https://bkmedia.bakingo.com/blueberry-cake-1-cake889blue-AAA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 9,
+                name: "Kit Kat Cake",
+                quantity: "1 Kg",
+                price: 699,
+                description: "Refreshing watermelons",
+                image: "https://bkmedia.bakingo.com/sq-kitkat-cake-cake1629choc-A_0.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 10,
+                name: "Pull Me Up Cake",
+                quantity: "1/2 Kg",
+                price: 480,
+                description: "Sweet papayas",
+                image: "https://bkmedia.bakingo.com/sq-choco-pull-up-cake-1100gm-pina2063choc-A_0.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 11,
+                name: "Rose Vanilla Dream Cake",
+                quantity: "1 Kg",
+                price: 550,
+                description: "Yelakki bananas",
+                image: "https://bkmedia.bakingo.com/roses-n-creamy-drops-cake-cake3177vani-A.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 12,
+                name: "Floral Pineapple Cake",
+                quantity: "1 Kg",
+                price: 590,
+                description: "Fresh muskmelons",
+                image: "https://bkmedia.bakingo.com/sq-pleasing-pineapple-cake2067pine-A_0.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 13,
+                name: "Heart Vanilla Cake",
+                quantity: "1 Kg",
+                price: 420,
+                description: "Exotic dragon fruits",
+                image: "https://bkmedia.bakingo.com/heart-topped-vanilla-vday-cake-cake3174vani-A.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 14,
+                name: "White Forest cake",
+                quantity: "1 Kg",
+                price: 400,
+                description: "Organic strawberries",
+                image: "https://bkmedia.bakingo.com/sq-white-forest-cake0026blac-AA.jpg?tr=w-320,h-320,q-70",
+            },
+            {
+                id: 15,
+                name: "Vanilla Strawberry Cake",
+                quantity: "1 Kg",
+                price: 600,
+                description: "Fresh pineapples",
+                image: "https://bkmedia.bakingo.com/sq-vanilla-strawberry-cake-with-red-carnation-on-top-rosecake2563stra-A_0.jpg?tr=w-320,h-320,q-70",
+            },
+        ];
+
+        for (item of cake) {
+            div1.innerHTML += `
+                <div class="cake-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>${item.quantity}</p>
+                    <p>Price: $${item.price}</p>
+                    <button onclick="data(${item.id - 1})">Add to Cart</button>
+                </div>
+            `;
+        }
+
+        let arr = [];
+        if (localStorage.getItem('PRODUCTID')) {
+            arr = JSON.parse(localStorage.getItem('PRODUCTID'));
+        }
+
+        let data = (id) => {
+            arr.push(cake[id]);
+            console.log(arr);
+            localStorage.setItem("PRODUCTID", JSON.stringify(arr));
+        }
+        
+        document.getElementById('dark-mode-btn').addEventListener('click', function() {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+        });
+
+        document.getElementById('light-mode-btn').addEventListener('click', function() {
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+        });
+    </script>
+    
+    <footer>
+        <div class="footer">
+            <section id="foot">
+                <center>
+                    <h2>Don't miss out on these mouthwatering delights!</h2>
+                    <b>CONTACT US</b>
+                    <br>
+                    <b>PHONE NUMBER:</b> +91 0987654321<br>
+                    <b>EMAIL:</b> ssbakery0921@gmail.com<br>
+                    <p>Visit our website for more details: <a href="indexpage.html">ssbakery.com</a></p>
+                </center>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>
